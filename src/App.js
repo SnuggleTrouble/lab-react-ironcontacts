@@ -18,7 +18,7 @@ function App() {
       }
   }
     let contactListCopy = [...producerContacts];
-    contactListCopy.push(randomContact);
+    contactListCopy.unshift(randomContact);
     setProducerContacts(contactListCopy);
   }
 
