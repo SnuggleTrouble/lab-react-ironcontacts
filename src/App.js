@@ -9,17 +9,31 @@ function App() {
   const [producerContacts, setProducerContacts] = useState(
     contacts.slice(0, 5)
   );
+  let contactListCopy = [...producerContacts];
 
   function handleAddRandomContact() {
     let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
     for (let producerContact of producerContacts) {
       if (producerContact.name === randomContact.name) {
-        return handleAddRandomContact()
+        return handleAddRandomContact();
       }
-  }
-    let contactListCopy = [...producerContacts];
+    }
     contactListCopy.unshift(randomContact);
-    setProducerContacts(contactListCopy);
+    return setProducerContacts(contactListCopy);
+  }
+
+  function handleContactsByPopularity() {
+    contactListCopy.sort(
+      (contactA, contactB) => contactB.popularity - contactA.popularity
+    );
+    return setProducerContacts(contactListCopy);
+  }
+
+  function handleContactsByName() {
+    contactListCopy.sort((contactA, contactB) =>
+      contactA.name.localeCompare(contactB.name)
+    );
+    return setProducerContacts(contactListCopy);
   }
 
   return (
@@ -28,6 +42,12 @@ function App() {
       <div className="headerBtn">
         <button className="contactListBtn" onClick={handleAddRandomContact}>
           Add Random Contact
+        </button>
+        <button className="contactListBtn" onClick={handleContactsByPopularity}>
+          Sort By Popularity
+        </button>
+        <button className="contactListBtn" onClick={handleContactsByName}>
+          Sort By Name
         </button>
       </div>
       <table>
@@ -51,10 +71,9 @@ function App() {
         {producerContacts.map((contact) => (
           <tr>
             <td>
-              <img
+              <img className="contactPicture"
                 src={contact.pictureUrl}
                 alt={contact.name}
-                style={{ width: "80px" }}
               />
             </td>
             <td>

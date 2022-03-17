@@ -24,11 +24,16 @@ td > p {
   font-size: 24px;
 }
 
+.contactPicture {
+  width: 100px;
+}
+
 .headerBtn {
   margin-top: 20px;
 }
 
 .contactListBtn {
   padding: 5px;
+  margin: 10px;
   font-size: 18px;
 }
