@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import "./App.css";
+// contacts
+import contacts from "./contacts.json";
+// useState
+import { useState } from "react";
 
 function App() {
+  const [producerContacts] = useState(
+    contacts.slice(0, 5)
+  );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table>
+        <h1>IronContacts</h1>
+        <tr>
+          <th><h2>Picture</h2></th>
+          <th><h2>Name</h2></th>
+          <th><h2>Popularity</h2></th>
+        </tr>
+        {producerContacts.map((contact) => (
+          <tr>
+            <td>
+              <img src={contact.pictureUrl} alt={contact.name} style={{width: "80px"}}/>
+            </td>
+            <td><h3>{contact.name}</h3></td>
+            <td><h3>{contact.popularity.toFixed(2)}</h3></td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
 }
-
 export default App;
