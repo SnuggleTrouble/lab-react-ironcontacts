@@ -16,6 +16,19 @@ code {
     monospace;
 }
 
+th {
+  padding: 10px;
+}
+
 td > p {
   font-size: 24px;
+}
+
+.headerBtn {
+  margin-top: 20px;
+}
+
+.contactListBtn {
+  padding: 5px;
+  font-size: 18px;
 }
