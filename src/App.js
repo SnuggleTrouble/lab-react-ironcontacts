@@ -36,6 +36,13 @@ function App() {
     return setProducerContacts(contactListCopy);
   }
 
+  const handleContactDeletion = contactId => {
+    const filteredContacts = contacts.filter((contact) => {
+      return contact.id !== contactId;
+    });
+    setProducerContacts(filteredContacts);
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
@@ -71,7 +78,8 @@ function App() {
         {producerContacts.map((contact) => (
           <tr>
             <td>
-              <img className="contactPicture"
+              <img
+                className="contactPicture"
                 src={contact.pictureUrl}
                 alt={contact.name}
               />
@@ -87,6 +95,14 @@ function App() {
             </td>
             <td>
               <p>{contact.wonEmmy ? "🏆" : ""}</p>
+            </td>
+            <td>
+              <button
+                className="contactListBtn"
+                onClick={() => handleContactDeletion(contact.id)}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         ))}
