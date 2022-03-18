@@ -1,19 +1,38 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  position: relative;
 }
 
 body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  background: url("./Popcorn.jpg") repeat fixed 100%;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1,
+h2,
+p {
+  text-shadow: rgba(0, 0, 0, 1) 0 4px 18px;
 }
 
 th {
@@ -25,7 +44,8 @@ td > p {
 }
 
 .contactPicture {
-  width: 100px;
+  max-width: 30%;
+  max-height: 30%;
 }
 
 .headerBtn {
@@ -33,7 +53,47 @@ td > p {
 }
 
 .contactListBtn {
-  padding: 5px;
-  margin: 10px;
-  font-size: 18px;
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #0589e0e5;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.2rem - 1px);
+  margin-top: 5px;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.contactListBtn:hover,
+.contactListBtn:focus {
+  background-color: #db2b39ff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.contactListBtn:hover {
+  transform: translateY(-1px);
+}
+
+.contactListBtn:active {
+  background-color: #be0202;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
 }

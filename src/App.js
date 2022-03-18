@@ -9,10 +9,10 @@ function App() {
   const [producerContacts, setProducerContacts] = useState(
     contacts.slice(0, 5)
   );
-  let contactListCopy = [...producerContacts];
+  const contactListCopy = [...producerContacts];
 
   function handleAddRandomContact() {
-    let randomContact = contacts[Math.floor(Math.random() * contacts.length)];
+    const randomContact = contacts[Math.floor(Math.random() * contacts.length)];
     for (let producerContact of producerContacts) {
       if (producerContact.name === randomContact.name) {
         return handleAddRandomContact();
@@ -37,7 +37,7 @@ function App() {
   }
 
   const handleContactDeletion = contactId => {
-    const filteredContacts = contacts.filter((contact) => {
+    const filteredContacts = producerContacts.filter((contact) => {
       return contact.id !== contactId;
     });
     setProducerContacts(filteredContacts);
